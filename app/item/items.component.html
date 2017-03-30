@@ -1,0 +1,30 @@
+<!--<Label [nsRouterLink]='["/home"]' text='HOME'></Label>
+<StackLayout class="page">
+    <ListView [items]="items" class="list-group">
+        <ng-template let-item="item">
+            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
+                class="list-group-item"></Label>
+        </ng-template>
+    </ListView>
+</StackLayout>-->
+<StackLayout>
+  <Label text='ITEMS PAGE'></Label>
+  <Button text='Home' [nsRouterLink]='["/home"]' nsRouterLinkActive='active'></Button>
+  <Button text='Map'></Button>
+</StackLayout>
+
+<ActionBar title='App Title'>
+  <ActionItem (tap)='toggle()'>
+    <Button class='fa' text='&#xf0c9;>'></Button>
+  </ActionItem>
+</ActionBar>
+<RadSideDrawer>
+  <StackLayout tkDrawerContent>
+      <Label text='Navigation Menu'></Label>
+      <Button text='Home' [nsRouterLink]='["/home"]' nsRouterLinkActive='active'></Button>
+      <Button text='Items' [nsRouterLink]='["/home/items"]' nsRouterLinkActive='active'></Button>
+  </StackLayout>
+  <StackLayout tkMainContent>
+    <router-outlet></router-outlet>
+  </StackLayout>
+</RadSideDrawer>

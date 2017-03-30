@@ -1,0 +1,23 @@
+<ActionBar class='action-bar'>
+    <NavigationButton text='go back' icon='res://menu' (tap)="toggle()"></NavigationButton>
+  <ios>
+    <ActionItem icon='res://ic_menu' ios.position='left' (tap)='toggle()'></ActionItem>
+  </ios>
+</ActionBar>
+<RadSideDrawer #drawer [transition]='sideDrawerTransition' selectionBehavior='None'>
+  <StackLayout tkDrawerContent class='drawer'>
+    <StackLayout class='drawerTitle'>
+      <Label text='Sheikah Tracker'></Label>
+    </StackLayout>
+    <ScrollView>
+      <StackLayout>
+        <Label text='LABEL' class='drawerLabel'></Label>
+        <Button text='Home' [nsRouterLink]='["/home"]' nsRouterLinkActive='active' [nsRouterLinkActiveOptions]='{exact:true}'></Button>
+        <Button text='Other Page' [nsRouterLink]='["/home/otherPath"]' nsRouterLinkActive='active'></Button>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+  <StackLayout tkMainContent>
+    <router-outlet></router-outlet>
+  </StackLayout>
+</RadSideDrawer>
